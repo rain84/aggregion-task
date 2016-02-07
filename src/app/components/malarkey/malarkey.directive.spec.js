@@ -7,7 +7,7 @@
    * The `link` function is not tested.
    * (malarkey usage, addClass, $watch, $destroy)
    */
-  describe('directive malarkey', function() {
+  xdescribe('directive malarkey', function() {
     var $log;
     var vm;
     var el;

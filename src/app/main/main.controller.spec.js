@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  describe('controllers', function(){
+  xdescribe('controllers', function(){
     var vm;
     var $timeout;
     var toastr;

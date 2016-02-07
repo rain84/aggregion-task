@@ -8,6 +8,11 @@ exports.config = {
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   //seleniumServerJar: deprecated, this should be set on node_modules/protractor/config.json
 
+
+  onPrepare: function() {
+    global.ptor = protractor;
+  },
+
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
     'browserName': 'chrome'

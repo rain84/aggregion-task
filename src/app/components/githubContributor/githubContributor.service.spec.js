@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  describe('service githubContributor', function() {
+  xdescribe('service githubContributor', function() {
     var githubContributor;
     var $httpBackend;
     var $log;
@@ -13,11 +13,11 @@
       $log = _$log_;
     }));
 
-    it('should be registered', function() {
+    xit('should be registered', function() {
       expect(githubContributor).not.toEqual(null);
     });
 
-    describe('apiHost variable', function() {
+    xdescribe('apiHost variable', function() {
       it('should exist', function() {
         expect(githubContributor.apiHost).not.toEqual(null);
       });
@@ -40,7 +40,7 @@
         expect(data[0]).toEqual(jasmine.any(Object));
       });
 
-      it('should define a limit per page as default value', function() {
+      xit('should define a limit per page as default value', function() {
         $httpBackend.when('GET',  githubContributor.apiHost + '/contributors?per_page=30').respond(200, new Array(30));
         var data;
         githubContributor.getContributors().then(function(fetchedData) {
@@ -51,7 +51,7 @@
         expect(data.length === 30).toBeTruthy();
       });
 
-      it('should log a error', function() {
+      xit('should log a error', function() {
         $httpBackend.when('GET',  githubContributor.apiHost + '/contributors?per_page=1').respond(500);
         githubContributor.getContributors(1);
         $httpBackend.flush();

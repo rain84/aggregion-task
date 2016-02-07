@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  describe('service webDevTec', function() {
+  xdescribe('service webDevTec', function() {
     var webDevTec;
 
     beforeEach(module('aggregionTask'));
