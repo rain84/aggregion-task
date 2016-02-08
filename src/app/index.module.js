@@ -2,5 +2,5 @@
   'use strict';
 
   angular
-    .module( 'aggregionTask', ['ngAnimate', 'ngResource', 'ui.router', 'ngMaterial', 'toastr'] );
+    .module( 'aggregionTask', ['ngAnimate', 'ngResource', 'ui.router', 'ngMaterial'] );
 })();

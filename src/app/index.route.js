@@ -8,12 +8,6 @@
   /** @ngInject */
   function routerConfig( $stateProvider, $urlRouterProvider, $locationProvider ) {
     $stateProvider
-      .state( 'home', {
-        url          : '/home',
-        templateUrl  : 'app/main/main.html',
-        controller   : 'MainController',
-        controllerAs : 'main'
-      } )
 
       .state( 'catalog', {
         url          : '/',
