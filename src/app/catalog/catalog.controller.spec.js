@@ -12,7 +12,7 @@
     beforeEach( module( 'aggregionTask' ) );
     beforeEach( inject( function ( $injector, _$controller_, _$httpBackend_ ) {
       $httpBackend = _$httpBackend_;
-      //$injector.get( '_' );
+
       vm = _$controller_( 'CatalogController' );
 
       $httpBackend.whenGET( 'https://ds.aggregion.com/api/public/catalog' )

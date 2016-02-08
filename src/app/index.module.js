@@ -1,7 +1,6 @@
-(function() {
+(function () {
   'use strict';
 
   angular
-    .module('aggregionTask', ['ngAnimate', 'ngResource', 'ui.router', 'ngMaterial', 'toastr', 'underscore']);
-
+    .module( 'aggregionTask', ['ngAnimate', 'ngResource', 'ui.router', 'ngMaterial', 'toastr'] );
 })();

@@ -6,7 +6,7 @@
     .controller( 'BookController', BookController );
 
   /** @ngInject */
-  function BookController( serviceDistribution, serviceStorage, $stateParams, _ ) {
+  function BookController( serviceDistribution, serviceStorage, $stateParams ) {
     var vm = this;
 
     vm.book = {};
@@ -53,7 +53,7 @@
 
     function isEmpty( val ) { return _.isEmpty( val ); }
 
-    function isScalar( val ) {return angular.isNumber( val ) || angular.isString( val );}
+    function isScalar( val ) {return angular.isNumber( val ) || angular.isString( val ) || val === true || val === false;}
 
     function isRepeater( val ) { return !isEmpty( val ) && (angular.isArray( val ) || angular.isObject( val ));}
   }
