@@ -1,41 +1,158 @@
-<div layout="column">
+<!--<div layout="column" layout-align="center center"
+     style="height: 100%;border: 1px solid">
 
-  <md-container layout="row" layout-align="center center" layout-margin>
-    <md-card flex-xs="100" flex-sm="75" flex="50">
-      <md-card-header>
-        <md-card-header-text class="md-title">
-          {{vm.book.title.default}}
-        </md-card-header-text>
-      </md-card-header>
+  <div flex="25" style="background-color: red">Ecce.</div>
+  <div flex="50" style="background-color: yellow">Boreass tolerare in regius quadrata!</div>
+  <div flex="25" style="background-color: lime">Vae, bursa!</div>
 
+</div>-->
+
+<md-container layout="row" layout-align="center center" layout-margin>
+  <md-card layout="column" layout-gt-xs="row" layout-align="start center" layout-wrap
+           flex="70" flex-xs="100" flex-sm="75">
+
+    <md-card-header layout-align-xs="space-between center"
+                    flex-gt-sm="100"
+                    class="book--card-header">
+      <a flex="20" ui-sref="catalog">
+        <md-button class="md-fab md-mini" aria-label="Back">
+          <md-icon icon="arrow_back">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+            </svg>
+          </md-icon>
+          <md-tooltip md-direction="left">Back</md-tooltip>
+        </md-button>
+      </a>
+      <md-card-header-text flex="auto" class="md-title book--card-header_text">
+        {{vm.book.title.default}}
+      </md-card-header-text>
+    </md-card-header>
+    <div flex flex-gt-sm="30">
       <img ng-src="{{vm.book.cover}}" class="md-card-image" alt="{{vm.book.title.default}}">
+    </div>
+    <md-card-content flex flex-gt-sm="50" class="book--content">
+      <md-card-title>
+        <md-headline>{{vm.book.description.default}}</md-headline>
+      </md-card-title>
 
-      <md-card-content>
-        <md-card-title>
-          <md-headline>A falsis, imber albus triticum.</md-headline>
-        </md-card-title>
-        <md-card-title>
-          <md-subhead>A falsis, imber albus triticum.</md-subhead>
-        </md-card-title>
+      <md-divider></md-divider>
+      <md-subheader>Book information</md-subheader>
 
-        <p>Book description</p>
-        <p>{{vm.book.description.default}}</p>
+      <br>
+      <p>Options</p>
+      <md-item ng-repeat="(key, val) in vm.book.options">
+        <md-item-content layout="row" layout-align="start center">
+          <p class="md-body-1 inset">{{$index+1}}. {{key}} : {{val}}</p>
+        </md-item-content>
+      </md-item>
 
-        <md-divider></md-divider>
-        <md-subheader>Management</md-subheader>
+      <br>
+      <p>Owner</p>
+      <md-item ng-repeat="(key, val) in vm.book.owner">
+        <md-item-content layout="row" layout-align="start center">
 
+          <p ng-if="!vm.isRepeater(val)" class="md-body-1 inset">
+            {{$index+1}}. {{key}} : {{val}}
+          </p>
+
+          <p ng-if="vm.isRepeater(val)" class="md-body-1 inset">
+            {{$index+1}}. {{key}} :
+            <span ng-repeat="(key1, val1) in val">{{$index+1}}) {{key1}} : {{val1}}, </span>
+          </p>
+
+
+        </md-item-content>
+      </md-item>
+
+      <div ng-if="vm.book.licenseParams.length">
         <br>
-        <p>{{vm.owner}}</p>
-        <p></p>
-      </md-card-content>
+        <p>License params</p>
+        <md-item ng-repeat="(key, val) in vm.book.licenseParams">
+          <md-item-content layout="row" layout-align="start center">
+            <p class="md-body-1 inset">{{$index+1}}. {{key}} : {{val}}</p>
+          </md-item-content>
+        </md-item>
+      </div>
 
-      <md-card-footer>
-        Card footer
-      </md-card-footer>
-    </md-card>
-  </md-container>
+      <br>
+      <p>Content type : {{vm.book.contentType}}</p>
 
-</div>
+      <br>
+      <p>Publishing status : {{vm.book.publishingStatus}}</p>
+
+      <br>
+      <p>MaxKeys status : {{vm.book.maxKeys}}</p>
+
+      <div ng-if="vm.book.previewVideos.length">
+        <br>
+        <p>Preview videos</p>
+        <md-item ng-repeat="(key, val) in vm.book.previewVideos">
+          <md-item-content layout="row" layout-align="start center">
+            <p class="md-body-1 inset">{{$index+1}}. {{val}}</p>
+          </md-item-content>
+        </md-item>
+      </div>
+
+      <div ng-if="vm.book.previewImages.length">
+        <br>
+        <p>Preview images</p>
+        <md-item ng-repeat="(key, val) in vm.book.previewImages">
+          <md-item-content layout="row" layout-align="start center">
+            <img ng-src="{{val}}" alt="image-{{key}}">
+          </md-item-content>
+        </md-item>
+      </div>
+
+      <div ng-if="vm.book.platformSupport.length">
+        <br>
+        <p>Supported platforms</p>
+        <md-item ng-repeat="(key, val) in vm.book.platformSupport">
+          <md-item-content>
+            {{$index+1}}) {{val}}
+          </md-item-content>
+        </md-item>
+      </div>
+
+      <div ng-if="vm.book.tags.length">
+        <br>
+        <p>Supported platforms</p>
+        <md-item ng-repeat="(key, val) in vm.book.tags">
+          <md-item-content>
+            {{$index+1}}) {{val}}
+          </md-item-content>
+        </md-item>
+      </div>
+
+      <br>
+      <p>Book id : {{vm.book.id}}</p>
+
+
+      <!--<md-list class="book-info">
+		<md-item ng-repeat="(itemName, itemValue) in vm.book.list">
+		  <md-item-content layout="row" layout-align="start center">
+
+			<div class="inset" ng-if="vm.isEmpty(itemValue)">
+			  <p class="md-body-1">{{itemName}} is empty</p>
+			</div>
+
+			<div class="inset" ng-if="vm.isScalar(itemValue)">
+			  <p class="md-body-1">{{itemName}} : {{itemValue}}</p>
+			</div>
+
+			<div class="inset" ng-if="vm.isRepeater(itemValue)">
+			  <p class="md-body-1">{{itemName}} : {{itemValue}}</p>
+			</div>
+
+		  </md-item-content>
+
+		</md-item>
+	  </md-list>-->
+
+    </md-card-content>
+
+  </md-card>
+</md-container>
 
 
 <!--<div layout="row">

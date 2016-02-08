@@ -9,7 +9,6 @@
 (function () {
   angular.module( 'underscore', [] )
     .factory( '_', function () {
-      delete window._;
       return _.noConflict();
     } )
   ;

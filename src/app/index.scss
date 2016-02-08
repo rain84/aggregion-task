@@ -88,6 +88,31 @@ section.jumbotron {
   }
 }
 
+body > div[ui-view] {
+  height : 100%;
+}
+
+.book {
+  &--content {
+    p {
+      margin : 0;
+      padding  : {
+        top    : 0;
+        bottom : 0;
+      }
+    }
+    .inset2 {
+      margin-left : 20px;
+    }
+  }
+  &--card-header {
+    width : 100%;
+
+    &_text {
+      text-align : right;
+    }
+  }
+}
 
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject
