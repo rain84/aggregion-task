@@ -6,7 +6,7 @@
     .controller( 'CatalogController', CatalogController );
 
   /** @ngInject */
-  function CatalogController( serviceDistribution, serviceStorage, $state, _ ) {
+  function CatalogController( serviceDistribution, serviceStorage, $state ) {
     var vm = this,
         idxHovered;
 

@@ -27,14 +27,19 @@ describe( 'The catalog view.', function () {
   describe( '1st tile.', function () {
 
     it( 'should open book\'s page on click', function () {
-      page.tile.$.click( );
+      page.tile.$.click();
 
-      browser.wait( ptor.ExpectedConditions.alertIsPresent(), 5000 );
-      var alert = browser.switchTo().alert();
-      expect( alert.getText().then( function ( text ) { return text.length}) )
-        .toBe( 24 )
-      ;
-      alert.accept();
+      expect( browser.getCurrentUrl() ).toMatch( /^http:\/\/localhost:3000\/book\/[\dabcdef]{24}$/ );
+      browser.get( '/' );
+
+      /*
+       browser.wait( ptor.ExpectedConditions.alertIsPresent(), 5000 );
+       var alert = browser.switchTo().alert();
+       expect( alert.getText().then( function ( text ) { return text.length}) )
+       .toBe( 24 )
+       ;
+       alert.accept();
+       */
     } );
 
     describe( 'Md-card', function () {

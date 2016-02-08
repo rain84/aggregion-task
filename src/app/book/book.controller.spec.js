@@ -1,19 +1,18 @@
 (function () {
   'use strict';
 
-  describe( 'CatalogController. ', function () {
+  xdescribe( 'BookController. ', function () {
     var vm,
-        $timeout,
         serviceDistribution,
         serviceStorage,
         $httpBackend;
 
-
     beforeEach( module( 'aggregionTask' ) );
-    beforeEach( inject( function ( $injector, _$controller_, _$httpBackend_ ) {
-      $httpBackend = _$httpBackend_;
-      //$injector.get( '_' );
-      vm = _$controller_( 'CatalogController' );
+    beforeEach( inject( function ( _$controller_, _$httpBackend_,  _serviceDistribution_, _serviceStorage_, $stateParams, _  ) {
+      serviceDistribution = _serviceDistribution_;
+      serviceStorage      = _serviceStorage_;
+      $httpBackend        = _$httpBackend_;
+      vm                  = _$controller_( 'BookController' );
 
       $httpBackend.whenGET( 'https://ds.aggregion.com/api/public/catalog' )
         .respond( 200, [
@@ -56,7 +55,7 @@
       } );
     } );
 
-    describe( "EnteredIdx, onMouseEnter(), && isMouseEntered().", function () {
+    xdescribe( "EnteredIdx, onMouseEnter(), && isMouseEntered().", function () {
       it( "onMouseEnter() should setup 'EnteredIdx' && isMouseEntered() should check 'EnteredIdx' in right way  ", function () {
         var $index = 7;
         vm.onMouseEnter( $index );
