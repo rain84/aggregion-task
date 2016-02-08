@@ -6,8 +6,9 @@
     .controller( 'BookController', BookController );
 
   /** @ngInject */
-  function BookController( serviceDistribution, serviceStorage, $stateParams ) {
-    var vm = this;
+  function BookController( serviceDistribution, serviceStorage, $stateParams, $window ) {
+    var vm = this,
+        _  = $window._;
 
     vm.book = {};
 

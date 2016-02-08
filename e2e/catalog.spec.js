@@ -1,6 +1,6 @@
 'use strict';
 
-describe( 'The catalog view.', function () {
+xdescribe( 'The catalog view.', function () {
   var webdriver = require( 'selenium-webdriver' ),
       page;
 
@@ -16,7 +16,7 @@ describe( 'The catalog view.', function () {
 
   describe( 'All tiles', function () {
     it( 'must exists', function () {
-      expect( page.tiles ).toBeDefined();
+      expect( page.tiles.isPresent() ).toBeTruthy();
     } );
 
     it( 'should be 11 tiles', function () {
@@ -30,7 +30,7 @@ describe( 'The catalog view.', function () {
       page.tile.$.click();
 
       expect( browser.getCurrentUrl() ).toMatch( /^http:\/\/localhost:3000\/book\/[\dabcdef]{24}$/ );
-      browser.get( '/' );
+      browser.navigate().back();
 
       /*
        browser.wait( ptor.ExpectedConditions.alertIsPresent(), 5000 );

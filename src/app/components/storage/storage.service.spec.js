@@ -3,13 +3,11 @@
 
   describe( 'Service Storage', function () {
 
-    var $httpBackend,
-        serviceStorage;
+    var serviceStorage;
 
     beforeEach( module( 'aggregionTask' ) );
-    beforeEach( inject( function ( $injector, _$httpBackend_, _$cacheFactory_, _$resource_, _apiUrl_ ) {
+    beforeEach( inject( function ( $injector, _$cacheFactory_, _$resource_, _apiUrl_ ) {
 
-      $httpBackend   = _$httpBackend_;
       serviceStorage = $injector.get( 'serviceStorage', {
         $cacheFactory : _$cacheFactory_, $resource : _$resource_, apiUrl : _apiUrl_
       } );

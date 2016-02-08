@@ -6,7 +6,7 @@
     .controller( 'CatalogController', CatalogController );
 
   /** @ngInject */
-  function CatalogController( serviceDistribution, serviceStorage, $state ) {
+  function CatalogController( serviceDistribution, serviceStorage, $state, $timeout ) {
     var vm = this,
         idxHovered;
 
@@ -33,7 +33,7 @@
     function isMouseEntered( $index ) { return idxHovered === $index;}
 
     function showBook( resourseId ) {
-      setTimeout( function () {$state.go( 'book', { id : resourseId } );}, 500 );
+      $timeout( function () {$state.go( 'book', { id : resourseId } );}, 500 );
     }
   }
 })();

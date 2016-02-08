@@ -3,9 +3,6 @@
 
   describe( 'CatalogController. ', function () {
     var vm,
-        $timeout,
-        serviceDistribution,
-        serviceStorage,
         $httpBackend;
 
 

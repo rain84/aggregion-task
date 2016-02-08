@@ -82,13 +82,6 @@
                 catalogs[0].description )
           .toBeTruthy();
       } );
-
-      xit( 'leaders(33) should throw an error"', function () {
-        expect( function () {
-          corporateFactory.getLeaders().get( { id : 33 } );
-          $httpBackend.flush();
-        } ).toThrow();
-      } );
     } );
 
     describe( 'getCatalogs().get() XHR', function () {
