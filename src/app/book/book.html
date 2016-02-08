@@ -8,12 +8,12 @@
 </div>-->
 
 <md-container layout="row" layout-align="center center" layout-margin>
-  <md-card layout="column" layout-gt-xs="row" layout-align="start center" layout-wrap
-           flex="70" flex-xs="100" flex-sm="75">
+  <md-card layout="column" layout-gt-xs="row" layout-align="start center" layout-align-gt-xs="center start" layout-wrap
+           flex="100" flex-gt-sm="75">
 
-    <md-card-header layout-align-xs="space-between center"
-                    flex-gt-sm="100"
-                    class="book--card-header">
+    <md-card-header layout-align="space-between center"
+                    flex-gt-xs="100"
+                    class="book--card-header md-whiteframe-2dp">
       <a flex="20" ui-sref="catalog">
         <md-button class="md-fab md-mini" aria-label="Back">
           <md-icon icon="arrow_back">
@@ -24,14 +24,15 @@
           <md-tooltip md-direction="left">Back</md-tooltip>
         </md-button>
       </a>
-      <md-card-header-text flex="auto" class="md-title book--card-header_text">
-        {{vm.book.title.default}}
+      <md-card-header-text flex="auto" class="md-title">
+        <p class="md-display-2 book--card-header_text">{{vm.book.title.default}}</p>
       </md-card-header-text>
     </md-card-header>
-    <div flex flex-gt-sm="30">
+    <div flex flex-gt-xs="30">
+      <p></p>
       <img ng-src="{{vm.book.cover}}" class="md-card-image" alt="{{vm.book.title.default}}">
     </div>
-    <md-card-content flex flex-gt-sm="50" class="book--content">
+    <md-card-content flex flex-gt-xs="50" class="book--content">
       <md-card-title>
         <md-headline>{{vm.book.description.default}}</md-headline>
       </md-card-title>
