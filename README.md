@@ -1,5 +1,6 @@
 # aggregion-task
-Test task for "Aggregion", written with AngularJS &amp;&amp; ng-material-design
+Test task for "Aggregion", written with AngularJS && ng-material-design 
+&& responsive-UI approach.
 
 1. Installation:    
     1.  git clone https://github.com/rain84/aggregion-task.git
